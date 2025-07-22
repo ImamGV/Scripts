@@ -46,7 +46,7 @@ end
 local function ItemsESP()
 for _,v in ipairs(workspace.Map.Ingame:GetDescendants()) do
 if v.Name == "Medkit" then
-Box(v.ItemRoot, Color3.new(1,0,1), "Medkit_ESP")
+Box(v.ItemRoot, Color3.new(1), "Medkit_ESP")
 elseif v.Name == "BloxyCola" then
 Box(v.ItemRoot, Color3.new(1,1), "BloxyCola_ESP")
 end
@@ -60,7 +60,7 @@ ItemsESP()
 --// Always ESP \\
 SurvivorsESP = workspace.Players.Survivors.DescendantAdded:Connect(function(v)
 wait(2.5)
-if v.Parent.Name == "Survivors" and v then
+if v:IsA("Model") and v.Parent.Name == "Survivors" then
 Box(v.Head, Color3.new(0,1), "Survivors_ESP")
 Box(v.Torso, Color3.new(0,1), "Survivors_ESP")
 Box(v["Right Arm"], Color3.new(0,1), "Survivors_ESP")
@@ -71,7 +71,7 @@ end
 end)
 KillersESP = workspace.Players.Killers.DescendantAdded:Connect(function(v)
 wait(2.5)
-if v.Parent.Name == "Killers" and v then
+if v:IsA("Model") and v.Parent.Name == "Killers" then
 Box(v.Head, Color3.new(1), "Killers_ESP")
 Box(v.Torso, Color3.new(1), "Killers_ESP")
 Box(v["Right Arm"], Color3.new(1), "Killers_ESP")
