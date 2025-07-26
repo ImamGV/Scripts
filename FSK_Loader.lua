@@ -53,7 +53,7 @@ task.spawn(function()
 while true do
 for _,gen in ipairs(workspace.Map.Ingame.Map:GetChildren()) do
 if gen.Name == "Generator" then
-v.Remotes.RE:FireServer()
+gen.Remotes.RE:FireServer()
 end
 end
 wait(2)
